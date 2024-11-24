@@ -5,7 +5,17 @@ export default {
       name: "SeangDev",
       status: "pending",
       tasks: ["Task One", "Task Two", "Task Three"],
+      link: "https://landing.hexcode.anbschool.org",
     };
+  },
+  methods: {
+    toggleStatus() {
+      if (this.status === "active") {
+        this.status = "pending";
+      } else {
+        this.status = "active";
+      }
+    },
   },
 };
 </script>
@@ -24,5 +34,12 @@ export default {
     <ul>
       <li v-for="task in tasks" :key="task">{{ task }}</li>
     </ul>
+
+    <!-- Binding attributes -->
+    <a v-bind:href="link">Vottamean App</a>
+
+    <br />
+    <!-- Event handling -->
+    <button @click="toggleStatus">Change Status</button>
   </div>
 </template>
